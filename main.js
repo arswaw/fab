@@ -5,8 +5,17 @@ new Vue({
     },
     methods: {
         test: async function testAPI() {
-            const response = await fetch('http://localhost:3000/')
-            this.message = response.json()
+            const response = await fetch('http://localhost:3000/', {
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Methods': "GET"
+                },
+            })
+
+            const json = await response.json()
+            
+            this.message = json.message
         }
     }
 })
