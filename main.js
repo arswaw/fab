@@ -7,6 +7,7 @@ new Vue({
         test: async function testAPI() {
             const response = await fetch('http://localhost:3000/', {
                 mode: 'cors',
+                credentials: "same-origin",
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Methods': "GET"
